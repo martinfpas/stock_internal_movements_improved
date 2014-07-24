@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="report_picking_simple_list"
+                model="stock.picking" name="stock.picking.simple.list"
+                string="Descargar Recibo" rml="stock_picking_simple_locations/report/picking.rml"/>
+    </data>
+</openerp>

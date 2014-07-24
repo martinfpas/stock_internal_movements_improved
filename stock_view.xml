@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="m_i_form" model="ir.ui.view">
+            <field name="name">m.i.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <field name="move_lines" position="before">
+                    <group colspan="4" col="4">
+                        <field name="location_id" domain="[['usage', '=', 'internal'], ['complete_name', 'ilike', 'stock']]" on_change="onchange_location_id(location_id,type,move_lines,context)"/>
+                        <field name="location_dest_id" domain="[['usage', '=', 'internal'], ['complete_name', 'ilike', 'stock']]" on_change="onchange_location_dest_id(location_dest_id,type,move_lines,context)"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+        
+       
+
+        <record id="m_o_out_form" model="ir.ui.view">
+            <field name="name">m.i.out.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_out_form"/>
+            <field name="arch" type="xml">
+                <field name="move_lines" position="before">
+                    <group colspan="4" col="4">
+                        <field name="location_id" domain="[('usage','&lt;&gt;','view')]" on_change="onchange_location_id(location_id,type,move_lines,context)"/>
+                        <field name="location_dest_id" domain="[('usage','&lt;&gt;','view')]" on_change="onchange_location_dest_id(location_dest_id,type,move_lines,context)"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        <record id="m_i_in_form" model="ir.ui.view">
+            <field name="name">m.i.in.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_in_form"/>
+            <field name="arch" type="xml">
+                <field name="move_lines" position="before">
+                    <group colspan="4" col="4">
+                        <field name="location_id" domain="[('usage','&lt;&gt;','view')]" on_change="onchange_location_id(location_id,type,move_lines,context)"/>
+                        <field name="location_dest_id" domain="[('usage','&lt;&gt;','view')]" on_change="onchange_location_dest_id(location_dest_id,type,move_lines,context)"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        <record id="m_i_search" model="ir.ui.view">
+            <field name="name">m.i.internal.select</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="stock_journal_id" position="after">
+                    <newline/>
+                    <group>
+                        <field name="location_id" domain="[('usage','&lt;&gt;','view')]"/>
+                        <field name="location_dest_id" domain="[('usage','&lt;&gt;','view')]"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        <record id="m_i_in_search" model="ir.ui.view">
+            <field name="name">m.i.in.search</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_in_search"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="stock_journal_id" position="after">
+                    <newline/>
+                    <group>
+                        <field name="location_id" domain="[('usage','&lt;&gt;','view')]"/>
+                        <field name="location_dest_id" domain="[('usage','&lt;&gt;','view')]"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        <record id="m_i_out_search" model="ir.ui.view">
+            <field name="name">m.i.out.search</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_out_search"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="stock_journal_id" position="after">
+                    <newline/>
+                    <group>
+	                    <field name="location_id" domain="[('usage','&lt;&gt;','view')]"/>
+	                    <field name="location_dest_id" domain="[('usage','&lt;&gt;','view')]"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+        
+         <record id="m_i_out_search" model="ir.ui.view">
+            <field name="name">m.i.tree</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.vpicktree"/>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <field name="origin" position="before">
+	                    <field name="location_id" />
+	                    <field name="location_dest_id" />
+                </field>
+            </field>
+        </record>
+         
+
+    </data>
+</openerp>
