@@ -146,12 +146,12 @@
         </td>
         <td>
           <para style="terp_default_Bold_9">Location :</para>
-          <para style="terp_default_9">[[ picking.location_id and picking.location_id.complete_name or '' ]]</para>
+          <para style="terp_default_9">[[ picking.location_id and picking.location_id.name or '' ]]</para>
           <para style="terp_default_9">
             <font color="white"> </font>
           </para>
           <para style="terp_default_Bold_9">Destination Location :</para>
-          <para style="terp_default_9">[[ picking.location_dest_id and picking.location_dest_id.complete_name or '' ]]</para>
+          <para style="terp_default_9">[[ picking.location_dest_id and picking.location_dest_id.name or '' ]]</para>
         </td>
       </tr>
     </blockTable>
@@ -214,7 +214,7 @@
           <para style="terp_tblheader_Details">Description</para>
         </td>
         <td>
-          <para style="terp_tblheader_Details_Centre">Cod. Lot</para>
+          <para style="terp_tblheader_Details_Centre">Lot</para>
         </td>
         <td>
           <para style="terp_tblheader_Details_Centre">State</para>
@@ -230,11 +230,11 @@
       <blockTable colWidths="256.0,74.0,88.0,103.0" style="Move_Line_Contect_Assign_State">
         <tr>
           <td>
-            <para style="terp_default_8"> [[ move_lines.product_id.name ]] </para>
+            <para style="terp_default_8"><font face="Helvetica" size="9.0">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ]</font> [[ move_lines.product_id.name ]] </para>
             <para style="P7">Serial Number/s: [[ move_lines.is_serial and get_serial_numbers(move_lines) or removeParentNode('para') ]]</para>
           </td>
           <td>
-            <para style="terp_default_Centre_8"><font face="Helvetica" size="9.0">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ]</font> [[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
+            <para style="terp_default_Centre_8">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
           </td>
           <td>
             <para style="P3">Waiting Availability[[ move_lines.state == 'confirmed' and ' ' or removeParentNode('para') ]]</para>

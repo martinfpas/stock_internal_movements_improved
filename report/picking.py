@@ -49,6 +49,6 @@ class picking(report_sxw.rml_parse):
             pass
         return ''
 
-report_sxw.report_sxw('report.stock.picking.simple.list',
+report_sxw.report_sxw('report.stock.internal.movements.improved',
                       'stock.picking',
-                      'addons/stock/report/picking.rml',parser=picking)
+                      'addons/stock_internal_movements_improved/report/picking.rml',parser=picking)

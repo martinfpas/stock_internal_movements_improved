@@ -22,7 +22,7 @@
 
 {
     'name'          : 'Stock Internal Movements Improved',
-    'version'       :'1.14',
+    'version'       :'1.3',
     'author'        : 'Martin Pascualon : Sysfe',
     'description'   : """
 Move the *Location* and *Destiny Location* fields from Moves to Stock Picking.
